@@ -1,11 +1,11 @@
 Kubernetes Filebeat Container
-------------------------------------------------------------------------------
+==============================================================================
 
 This is a simple container which just runs bash and has a bunch of useful
 shell tools.
 
 Configuration
-==============================================================================
+------------------------------------------------------------------------------
 
 Two environment variables are required:
 
@@ -14,7 +14,7 @@ Two environment variables are required:
 
 
 Running the Container
-==============================================================================
+------------------------------------------------------------------------------
 
 ### Processing container logs
 
@@ -42,7 +42,7 @@ A sample unit file is included in the `examples/coreos` directory.
 
 
 Related Projects
-==============================================================================
+------------------------------------------------------------------------------
 
 For filtering the output from this plugin, you probably want the
 [Kubernetes Logstash filter](https://github.com/vaijab/logstash-filter-kubernetes)
