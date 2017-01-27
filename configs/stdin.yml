@@ -1,0 +1,14 @@
+#
+# This config file reads data from STDIN
+#
+filebeat:
+  prospectors:
+    -
+      encoding: utf-8
+      input_type: stdin
+      fields:
+        application: coreos
+
+output:
+  logstash:
+    hosts: [ "${LOGSTASH_HOST}:${LOGSTASH_PORT:5044}" ]

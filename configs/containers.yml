@@ -1,0 +1,18 @@
+#
+# This config file reads logs for all containers running on this host
+#
+filebeat:
+  prospectors:
+    -
+      encoding: utf-8
+      input_type: log
+      document_type: kubernetes-docker
+      paths:
+        - "/var/log/containers/*.log"
+      scan_frequency: 10s
+      fields:
+        application: docker
+
+output:
+  logstash:
+      hosts: [ "${LOGSTASH_HOST}:${LOGSTASH_PORT:5044}" ]

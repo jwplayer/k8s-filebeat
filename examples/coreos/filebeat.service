@@ -1,0 +1,10 @@
+[Unit]
+Description=CoreOS Filebeat
+After=docker.service
+Requires=docker.service
+[Service]
+Restart=always
+ExecStartPre=-/usr/bin/docker pull jwplayer/k8s-filebeat:latest
+ExecStart=/bin/bash -c "/usr/bin/journalctl -b -o json -f | /usr/bin/docker run -e LOGSTASH_HOST=logstash.mydomain.com -e LOGSTASH_PORT=5044 -i jwplayer/k8s-filebeat:latest -c /etc/filebeat/stdin.yml"
+
+
