@@ -4,6 +4,7 @@ metadata:
   name: filebeat
   namespace: kube-system
   labels:
+    app: filebeat
     k8s-app: filebeat
     kubernetes.io/cluster-service: "true"
 spec:
@@ -16,6 +17,7 @@ spec:
       containers:
       - name: filebeat
         image: jwplayer/k8s-filebeat:latest
+        imagePullPolicy: Always
         resources:
           limits:
             memory: 200Mi
