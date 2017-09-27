@@ -19,11 +19,6 @@ filebeat:
       fields:
         application: docker
         host: ${FILEBEAT_HOST:${HOSTNAME}}
-        logstash: ${LOGSTASH_HOST}
       fields_under_root: false
-
-output:
-  logstash:
-      hosts: [ "${LOGSTASH_HOST}:${LOGSTASH_PORT:5044}" ]
 
 logging.level: ${LOG_LEVEL:error}

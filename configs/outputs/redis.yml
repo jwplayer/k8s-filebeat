@@ -1,0 +1,4 @@
+output:
+  redis:
+      hosts: [ "${LOGSTASH_HOST}" ]
+      port: ${LOGSTASH_PORT:6379}
