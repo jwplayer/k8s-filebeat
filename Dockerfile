@@ -7,6 +7,8 @@ LABEL CostCenter="Ops" Application="kubernetes"
 RUN apk add --no-cache --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ filebeat
 
 COPY configs/*.yml /etc/filebeat/
+COPY configs/outputs/*.yml /etc/filebeat/
 
-ENTRYPOINT ["/usr/bin/filebeat", "-e", "-v"]
-CMD ["-c", "/etc/filebeat/containers.yml"]
+ENV output logstash
+
+ENTRYPOINT /usr/bin/filebeat -e -v -c /etc/filebeat/${output}.yml -c /etc/filebeat/containers.yml
